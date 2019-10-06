@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="_1612797_SalesManagementApplication.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="connString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\Users\Admin\Documents\Visual Studio 2013\Projects\Quản lý bán hàng\1612797_SalesManagementApplication\1612797_SalesManagementApplication\Data\DB_SalesManagementApplication.mdf";Integrated Security=True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

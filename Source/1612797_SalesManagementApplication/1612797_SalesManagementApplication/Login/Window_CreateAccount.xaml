@@ -1,0 +1,156 @@
+﻿<Window x:Class="_1612797_SalesManagementApplication.Login.Window_CreateAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1612797_SalesManagementApplication.Login"
+        mc:Ignorable="d"
+        Title="Window_CreateAccount" 
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        Height="350" Width="525" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" 
+        AllowsTransparency="True" Background="Transparent" >
+    <Grid MouseDown="Grid_MouseDown">
+
+        <!--Radius (First: AllowsTransparency="True" Background="Transparent")-->
+        <Rectangle RadiusX="7" RadiusY="7" Fill="White" OpacityMask="White"/>
+
+        <!--Image-->
+        <Image  Margin="103,0,0,0" Stretch="UniformToFill" OpacityMask="White" Source="/Login;component/Images/business-management-1.jpg" />
+
+
+        <Grid Background="#CDEEEEEE" OpacityMask="White">
+
+            <StackPanel OpacityMask="White">
+
+                <!--"Đăng ký"-->
+                <Label Content="Đăng ký" FontWeight="Heavy"
+                   FontFamily="UTM Caviar" FontSize="24" Foreground="Black" 
+                   Margin="30,50,0,50" VerticalAlignment="Top" HorizontalAlignment="Left" OpacityMask="White">
+                </Label>
+
+                <!--"Đăng ký tài khoản DApp"-->
+                <TextBlock Text="Đăng ký tài khoản DApp" 
+                       Foreground="Gray" FontSize="15"
+                       VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35 -50 0 0" 
+                       TextWrapping="Wrap" OpacityMask="White"/>
+
+                <!--Form đăng ký :-->
+                <Grid Margin="2 -20" OpacityMask="White">
+
+                    <Rectangle 
+                        Margin="10,0" RadiusX="5" RadiusY="5" 
+                        Fill="White" OpacityMask="White" />
+
+                    <StackPanel >
+
+                        <StackPanel Margin="20 5" Orientation="Horizontal" >
+                            <TextBox  materialDesign:HintAssist.Hint="Tên cửa hàng của bạn " Width="233" Margin="5" />
+                        </StackPanel>
+
+                        <StackPanel Margin="20 5" Orientation="Horizontal" Background="#00000000">
+                            <TextBox materialDesign:HintAssist.Hint="Họ tên của bạn" Width="231" Margin="5" />
+                            <TextBox materialDesign:HintAssist.Hint="Số điện thoại của bạn" Width="231" Margin="5" />
+                        </StackPanel>
+
+                        <StackPanel Margin="20 5" Orientation="Horizontal">
+                            <TextBox materialDesign:HintAssist.Hint="Email đăng ký" Width="231" Margin="5"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="20 5" Orientation="Horizontal">
+                            <TextBox materialDesign:HintAssist.Hint="Mật khẩu đăng nhập cửa hàng của bạn" Width="231" Margin="5"/>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </Grid>
+
+                <!--Button-->
+                <Button x:Name="ButtonSignUp" HorizontalAlignment="Center" Content="Đăng ký" Margin="212,30,211,15" OpacityMask="White" Click="ButtonSignUp_Click"/>
+
+            </StackPanel>
+
+            <!-- Grid thanh tiêu đề -->
+            <StackPanel >
+
+                <Grid Margin="7">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
+
+                        <Button Name="ButtonMinimize" Width="30" Height="30" Background="#99000204"   BorderBrush="{x:Null}" Foreground="White" Padding="0" Click="ButtonMinimize_Click" >
+                            <materialDesign:PackIcon Kind="WindowMinimize"  />
+                        </Button>
+                        <Button Name="ButtonFechar" Width="30" Height="30" Background="#99000000" BorderBrush="{x:Null}" Foreground="White" Padding="0"  Click="ButtonFechar_Click">
+                            <materialDesign:PackIcon Kind="Close"  />
+                        </Button>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </StackPanel>
+
+            <!--HOẶC ĐĂNG KÍ VỚI FACEBOOK VÀ GOOGLE-->
+            <Grid Margin="270 50 0 0">
+
+                <StackPanel HorizontalAlignment="Center">
+
+                    <TextBlock Text="Hoặc đăng ký với" 
+                       Foreground="Gray" FontSize="15"
+                       VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 0 0" 
+                       TextWrapping="Wrap" OpacityMask="White"/>
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <!--Đăng ký với tài khoản Facebook-->
+                        <Grid>
+
+                            <Rectangle Margin="0,10,0,10" Fill="#FF3B5998" Height="25" Width="100" VerticalAlignment="Center" RadiusY="12" RadiusX="12" Stroke="#FF0069C0">
+                                <Rectangle.Effect>
+                                    <DropShadowEffect BlurRadius="3" Color="#FFC9C5C5" ShadowDepth="1"/>
+                                </Rectangle.Effect>
+                            </Rectangle>
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0" >
+
+                                <materialDesign:PackIcon Kind="Facebook" Foreground="White" VerticalAlignment="Center" Margin="5 0 "/>
+                                <Rectangle Fill="#FF3B5998" Height="24" Width="0.6" VerticalAlignment="Center"  Stroke="#FF0069C0" />
+                                <Label Content="Facebook" Foreground="White" FontSize="10" />
+
+                            </StackPanel>
+
+                        </Grid>
+
+                        <!--Đăng ký với tài khoản Google-->
+                        <Grid Margin="5 0">
+
+                            <Rectangle Margin="0,10,0,10" Fill="#FFE14B33" Height="25" Width="100" VerticalAlignment="Center" RadiusY="12" RadiusX="12" Stroke="#FF0069C0">
+                                <Rectangle.Effect>
+                                    <DropShadowEffect BlurRadius="3" Color="#FFC9C5C5" ShadowDepth="1"/>
+                                </Rectangle.Effect>
+                            </Rectangle>
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0" >
+
+                                <materialDesign:PackIcon Kind="GooglePlus"  Foreground="White" VerticalAlignment="Center" Margin="5 0 "/>
+                                <Rectangle Fill="#FFC9C5C5" Height="24" Width="0.6" VerticalAlignment="Center"  Stroke="#FF0069C0" />
+                                <Label Content="Google" Foreground="White" FontSize="10" />
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
+

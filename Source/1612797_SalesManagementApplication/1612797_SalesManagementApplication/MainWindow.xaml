@@ -1,0 +1,374 @@
+﻿<Window x:Class="_1612797_SalesManagementApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1612797_SalesManagementApplication"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        Height="700" Width="1224" 
+        ResizeMode="NoResize" 
+        Loaded="Window_Loaded" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None">
+    <Grid Background="#FFEEEEEE" MouseDown="Grid_MouseDown">
+
+        <!-- Grid thanh tiêu đề -->
+        <StackPanel>
+
+            <Grid VerticalAlignment="Top" Background="#FF0069C0" Height="10"/>
+
+            <!--Button Minimize & Fechar-->
+            <Grid Margin="5">
+
+                <StackPanel Orientation="Horizontal"  
+                            HorizontalAlignment="Right" 
+                            Margin="10 0">
+
+                    <!--ĐỒNG HỒ-->
+                    <Border Width="138"
+                            Margin="50 10" 
+                            BorderBrush="#FF0069C0" 
+                            BorderThickness="1" 
+                            CornerRadius="1">
+
+                        <StackPanel HorizontalAlignment="Center" >
+
+                            <StackPanel Orientation="Horizontal" 
+                                        HorizontalAlignment="Center">
+
+                                <!--Clock-->
+                                <materialDesign:PackIcon Kind="Clock" 
+                                                         Width="20" 
+                                                         Foreground="#FF0069C0" 
+                                                         HorizontalAlignment="Center"/>
+
+                                <!--TextBlock_Time-->
+                                <TextBlock x:Name="TextBlock_Time" 
+                                           FontSize="12" 
+                                           TextAlignment="Center" 
+                                           Foreground="Gray" 
+                                           Width="102">00:00:00 AM</TextBlock>
+
+                            </StackPanel>
+
+                            <!--TextBlock_Date-->
+                            <TextBlock x:Name="TextBlock_Date" 
+                                       FontSize="10" 
+                                       TextAlignment="Center" 
+                                       Foreground="#FF3E3E42">Wesnesday, May 2, 2019</TextBlock>
+
+                        </StackPanel>
+
+                    </Border>
+
+                    <!--BUTTON MINIMIZE-->
+                    <Button x:Name="Button_Minimize" 
+                            Width="30" Height="30" 
+                            Background="{x:Null}" 
+                            BorderBrush="{x:Null}" 
+                            Foreground="Gray" 
+                            Padding="0" 
+                            Click="Button_Minimize_Click" >
+                        <materialDesign:PackIcon 
+                            Kind="WindowMinimize" />
+                    </Button>
+
+                    <!--BUTTON FECHAR-->
+                    <Button x:Name="Button_Fechar" 
+                            Width="30" Height="30" 
+                            Background="{x:Null}" 
+                            BorderBrush="{x:Null}" 
+                            Foreground="Gray" 
+                            Padding="0"  
+                            Click="Button_Fechar_Click" >
+                        <materialDesign:PackIcon 
+                            Kind="Power" />
+                    </Button>
+
+                </StackPanel>
+
+            </Grid>
+
+
+          
+
+        </StackPanel>
+
+        <!-- Grid chính(thể hiện bởi các user control)-->
+        <Grid  Margin="250 75 0 0">
+
+            <Grid x:Name="GridPrincipal" />
+
+        </Grid>
+
+        <!-- Cột Dashboard-->
+        <Grid Width="250"  HorizontalAlignment="Left" Background="#FF222222" 
+              Margin="0,0,0,50">
+
+            <StackPanel>
+
+                <!--Logo-->
+                <Grid Height="117">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Composions/Images/pattern.jpg"/>
+                    </Grid.Background>
+
+                    <!--"D"-->
+                    <TextBlock Text="D" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Venus Rising" Height="90" Margin="51,-6,130,33" FontSize="98" Opacity="0.9" Width="69">
+
+                        <TextBlock.Effect>
+                            <DropShadowEffect/>
+                        </TextBlock.Effect>
+
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFDC63B0" Offset="0.133"/>
+                                <GradientStop Color="#FF065699" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+
+                    </TextBlock>
+
+                    <!--"app"-->
+                    <TextBlock Text="APP" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Venus Rising" Height="42" Margin="115,44,60,31" FontSize="40" Foreground="White" Opacity="0.8" Width="75">
+
+                        <TextBlock.Effect>
+                            <DropShadowEffect/>
+                        </TextBlock.Effect>
+
+                    </TextBlock>
+
+                    <!--path-->
+                    <Rectangle Fill="White" Margin="60 89 60 27" Opacity=".8"></Rectangle>
+                    
+                    <!--"sales management application"-->
+                    <TextBlock Text="cafe management application" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="UTM Neo Sans Intel"  Margin="60,90,59,13" FontSize="10" Cursor="None" Opacity="0.8" Height="14">
+
+                        <TextBlock.Effect>
+                            <DropShadowEffect Direction="150" BlurRadius="5" RenderingBias="Performance" ShadowDepth="5"/>
+                        </TextBlock.Effect>
+                        
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFDCC0C0" Offset="0"/>
+                                <GradientStop Color="#FF764A4A" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+
+                    </TextBlock>
+
+                </Grid>
+
+                <!--Menu-->
+                <Grid Height="531" >
+
+                    <!--Tạo hiệu ứng Transitioning Content cho menu -->
+                    <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
+                                                         OpeningEffect="{materialDesign:TransitionEffect Duration=0:0:0.2}">
+
+                        <Grid x:Name="GridCursor"  
+                              Margin="0 0" 
+                              Width="10" Height="40" 
+                              HorizontalAlignment="Left"  
+                              Background="#FF0069C0"   
+                              VerticalAlignment="Top" />
+
+                    </materialDesign:TransitioningContent>
+
+                    <StackPanel>
+
+                        <!--Tạo 1 menu sd ListView-->
+                        <ListView x:Name="ListViewMenu" 
+                                  Margin="0 0" 
+                                  Foreground="LightGray" 
+                                  SelectionChanged="ListViewMenu_SelectionChanged" 
+                                  Background="{x:Null}" BorderBrush="{x:Null}">
+
+                            <!--Tổng quan-->
+                            <ListViewItem Height="40">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <materialDesign:PackIcon Margin="5" Kind="Home" Width="40" Height="20" VerticalAlignment="Center"    />
+                                    <TextBlock  Margin="0 0" Text="Tổng quan" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                                </StackPanel>
+
+                            </ListViewItem>
+
+                            <!--Bán hàng-->
+                            <ListViewItem Height="40">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <materialDesign:PackIcon Margin="5" Kind="MoneyUsd" Width="40" Height="20" VerticalAlignment="Center"    />
+                                    <TextBlock  Margin="0 0" Text="Bán hàng" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                                </StackPanel>
+
+                            </ListViewItem>
+
+                            <!--Hàng hóa-->
+                            <ListViewItem Height="40">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <materialDesign:PackIcon Margin="5" Kind="Dropbox" Width="40" Height="20" VerticalAlignment="Center"    />
+                                    <TextBlock  Margin="0 0" Text="Hàng hóa" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                                </StackPanel>
+
+                            </ListViewItem>
+
+                            <!--Thống kê kho hàng-->
+                            <ListViewItem Height="40">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <materialDesign:PackIcon Margin="5" Kind="HouseOutline" Width="40" Height="20" VerticalAlignment="Center"    />
+                                    <TextBlock  Margin="0 0" Text="Thống kê kho hàng" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                                </StackPanel>
+
+                            </ListViewItem>
+
+                            <!--Đơn hàng-->
+                            <ListViewItem Height="40">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <materialDesign:PackIcon Margin="5" Kind="Receipt" Width="40" Height="20" VerticalAlignment="Center"    />
+                                    <TextBlock  Margin="0 0" Text="Đơn hàng" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                                </StackPanel>
+
+                            </ListViewItem>
+
+                            <!--Thống kê bán hàng-->
+                            <ListViewItem Height="40">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <materialDesign:PackIcon Margin="5" Kind="ChartBar" Width="40" Height="20" VerticalAlignment="Center"    />
+                                    <TextBlock  Margin="0 0" Text="Thống kê bán hàng" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                                </StackPanel>
+
+                            </ListViewItem>
+
+                            <!--Cấu hình nâng cao-->
+                            <ListViewItem Height="40">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <materialDesign:PackIcon Margin="5" Kind="SettingsOutline" Width="40" Height="20" VerticalAlignment="Center"    />
+                                    <TextBlock  Margin="0 0" Text="Cấu hình nâng cao" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                                </StackPanel>
+
+                            </ListViewItem>
+
+                        </ListView>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </StackPanel>
+
+        </Grid>
+
+        <!--Hiển thị trực quan tài khoản và cài đặt tài khoản-->
+        <Grid Width="250"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Bottom"
+              Margin="0 0 0 0"
+              Background="#FF222222">
+
+            <Border Margin="0 0 0 10" 
+                    BorderBrush="#FF0069C0" 
+                    BorderThickness="1">
+
+                <StackPanel Height="40"
+                            Background="#FF03467E" 
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal" >
+
+                    <!--Avatar và User Name-->
+                    <Grid  x:Name="Grid_UserAccountDisplay" 
+                           Width="200" 
+                           Background="#FF0069C0">
+
+                        <Grid Width="170"
+                              HorizontalAlignment="Center">
+
+                            <!--Stack Panel-->
+
+                            <StackPanel HorizontalAlignment="Center"  
+                                        Orientation="Horizontal">
+
+                                <!--Avatar////-->
+                                <Ellipse VerticalAlignment="Center" Height="30" Width="30">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="Composions/Images/pic1.jpg" ></ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                                <!--User Name////-->
+                                <TextBlock   
+                                            Margin="7 0 3 0" 
+                                            VerticalAlignment="Center" 
+                                            FontFamily="UTM Caviar" 
+                                            FontSize="12" 
+                                            Foreground="White">LÊ THỤC UYÊN</TextBlock>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </Grid>
+
+                    <!--Acount Pop Up-->
+                    <materialDesign:PopupBox  
+                                              PlacementMode="BottomAndAlignRightEdges" 
+                                              StaysOpen="False" 
+                                              Foreground="White" 
+                                              Width="48" 
+                                              Background="#FF31054F" 
+                                              BorderBrush="#FF31054F">
+                        <!--Icon-->
+                        <materialDesign:PopupBox.ToggleContent>
+                            <materialDesign:PackIcon Kind="KeyboardArrowUp" 
+                                                     Width="30" Height="30" 
+                                                     Foreground="White"/>
+                        </materialDesign:PopupBox.ToggleContent>
+                        <!--Nội dung popup-->
+                        <StackPanel HorizontalAlignment="Center" 
+                                    Width="200" Background="#FF1E1E1E"
+                                    Margin="30 20">
+                            <Button Content="Hotline 1900 1234" Foreground="White"/>
+                            <Button x:Name="Button_Helpful" 
+                                    Content="Trợ giúp"  Foreground="White"
+                                    Click="Button_Helpful_Click"/>
+                            <Button x:Name="Button_Info"  
+                                    Content="Hồ sơ cá nhân"  Foreground="White"
+                                    Click="Button_Info_Click"/>
+                            <!--Image & đặt lại MK-->
+                            <Button x:Name="Button_Logout" 
+                                    Content="Thoát"  Foreground="White"
+                                    Click="Button_PopUpLogout_Click"/>
+                        </StackPanel>
+
+                    </materialDesign:PopupBox>
+
+                </StackPanel>
+
+            </Border>
+
+        </Grid>
+
+
+    </Grid>
+</Window>
